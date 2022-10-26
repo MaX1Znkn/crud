@@ -31,16 +31,18 @@ class Wrapper extends Component {
 			},
 			method: "POST",
 			body: JSON.stringify(value),
+		}).then(() => {
+			this.getData();
 		});
-		this.getData();
 	};
 
 	onDel = (i) => {
 		fetch(`http://localhost:7777/notes/${i}`, {
 			method: "DELETE",
 			headers: {},
+		}).then(() => {
+			this.getData();
 		});
-		this.getData();
 	};
 
 	componentDidMount() {
